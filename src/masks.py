@@ -3,10 +3,12 @@ def mask_card(account_number: str) -> str:
     Функция максирует номер карты
     """
     pay_system = ("Visa", "Maestro", "MasterCard")
+    pay_system = ("Visa", "Maestro", "MasterCard")
     for i in account_number.split():
         if i in pay_system:
             card_name = " ".join([i for i in account_number.split() if i.isalpha()])
     masked_number = account_number[:6] + len(account_number[6:-4]) * "*" + account_number[-4:]
+
     return card_name
     # return " ".join([masked_number[i : i + 4] for i in range(0, len(account_number), len(account_number) // 4)])
 
