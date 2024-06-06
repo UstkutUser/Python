@@ -42,6 +42,9 @@ def save_to_file(file_name: str, data: str) -> None:
 if __name__ == '__main__':
     cleared_name = clear_names("names.txt")
 
+    for i in cleared_name:
+        print(i)
+
     filtered_names = filter_russian_names(cleared_name)
     save_to_file("russian_names.txt","\n".join(filtered_names))
 
