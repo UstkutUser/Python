@@ -17,9 +17,13 @@ def clear_names(file_name: str) -> list:
                 new_names_list.append(new_name)
 
     return new_names_list
+
+
 def is_cirillic(name_item: str) -> bool:
     """Проверка на вхождение кириллицы в строку"""
     return bool(re.search("[а-яА-Я]", name_item))
+
+
 def filter_russian_names(names_list: list) -> list:
     """Фильтрация имен, написанных на русском яэыке"""
     new_names_list = []
@@ -27,6 +31,8 @@ def filter_russian_names(names_list: list) -> list:
         if is_cirillic(name_item):
             new_names_list.append(name_item)
     return new_names_list
+
+
 def filter_english_names(names_list: list) -> list:
     """Фильтрация имен, написанных на английском яэыке"""
     new_names_list = []
@@ -34,10 +40,16 @@ def filter_english_names(names_list: list) -> list:
         if not is_cirillic(name_item):
             new_names_list.append(name_item)
     return new_names_list
+
+
 def save_to_file(file_name: str, data: str) -> None:
     """Сохраняет данные в файл"""
-    with open("c:\\python\\homeWork_9_2\\data\\" + file_name, "w") as names_file:
+    with open(
+            "c:\\python\\homeWork_9_2\\data\\" + file_name, "w"
+    ) as names_file:
         names_file.write(data)
+
+
 if __name__ == "__main__":
     cleared_name = clear_names("names.txt")
 
